@@ -6,17 +6,17 @@
     android:layout_height="match_parent">
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/kick"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:layout_marginEnd="60dp"
         android:layout_marginBottom="30dp"
-        android:text="throw" />
+        android:text="kick" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/keep"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
@@ -26,7 +26,7 @@
         android:text="keep" />
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/wallpaper"
         android:layout_width="match_parent"
         android:layout_height="748dp"
         android:layout_alignParentStart="true"
