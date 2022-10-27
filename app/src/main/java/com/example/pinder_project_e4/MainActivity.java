@@ -25,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.home_page);
 
         imageView = (ImageView) findViewById(R.id.wallpaper);
+        //this.imageView.setImageResource(R.drawable.tokyowallpaper);
         keep = (Button) findViewById(R.id.keep);
         kick = (Button) findViewById(R.id.kick);
         keep.setOnClickListener(new View.OnClickListener() {
