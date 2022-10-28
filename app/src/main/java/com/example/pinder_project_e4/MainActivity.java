@@ -24,7 +24,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.home_page);
-
         imageView = (ImageView) findViewById(R.id.wallpaper);
         love = (ImageButton) findViewById(R.id.love);
         remove = (ImageButton) findViewById(R.id.remove);
