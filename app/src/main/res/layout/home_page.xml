@@ -48,7 +48,7 @@
         />
 
     <ImageButton
-        android:id="@+id/gallery"
+        android:id="@+id/toGallery"
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:layout_alignParentTop="true"
@@ -57,6 +57,6 @@
         android:layout_marginEnd="15dp"
         android:background="@null"
         android:scaleType="fitXY"
-        app:srcCompat="@drawable/gallery" />
+        app:srcCompat="@drawable/to_gallery" />
 
 </RelativeLayout>
