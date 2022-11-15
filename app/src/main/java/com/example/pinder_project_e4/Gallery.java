@@ -23,12 +23,10 @@ public class Gallery extends AppCompatActivity {
         Intent intentHome = new Intent(this,MainActivity.class);
 
         toHome = (ImageButton) findViewById(R.id.toHome);
-        System.out.println("J'ai changé");
 
         toHome.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 startActivity(intentHome);
             }
         });
