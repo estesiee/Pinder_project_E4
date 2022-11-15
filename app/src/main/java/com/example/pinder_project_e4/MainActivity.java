@@ -16,7 +16,7 @@ public class MainActivity extends AppCompatActivity {
     ImageView imageView;
     ImageButton love;
     ImageButton remove;
-    ImageButton gallery;
+    ImageButton toGallery;
 
     private AppBarConfiguration appBarConfiguration;
 
@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
         imageView = (ImageView) findViewById(R.id.wallpaper);
         love = (ImageButton) findViewById(R.id.love);
         remove = (ImageButton) findViewById(R.id.remove);
-        gallery = (ImageButton) findViewById(R.id.gallery);
+        toGallery = (ImageButton) findViewById(R.id.toGallery);
 
         love.setOnClickListener(new View.OnClickListener() {
           @Override
@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        gallery.setOnClickListener(new View.OnClickListener() {
+        toGallery.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
