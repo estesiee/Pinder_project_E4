@@ -35,14 +35,15 @@ public class MainActivity extends AppCompatActivity {
         love.setOnClickListener(new View.OnClickListener() {
           @Override
                   public void onClick(View view) {
-              System.out.println("Keep");
+              //System.out.println("Keep");
           }
         });
 
         remove.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                System.out.println("Kick");
+                //System.out.println("Kick");
+                imageView.setImageResource(R.drawable.crop);
             }
         });
 
