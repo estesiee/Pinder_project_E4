@@ -11,8 +11,17 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.recyclerview.widget.DividerItemDecoration;
+import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import androidx.appcompat.app.AppCompatActivity;
+import android.annotation.SuppressLint;
+import android.app.WallpaperManager;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import java.io.IOException;
 
 import java.util.ArrayList;
 
@@ -22,15 +31,16 @@ public class Gallery extends AppCompatActivity {
     RecyclerView recyclerView;
     ArrayList<String> data;
     RVAdapter rvAdapter;
+    final String TAG = "Gallery";
 
     void initData() {
         data = new ArrayList<>();
         data.add("Tokyo");
         data.add("Circle");
-        data.add("Circle");
-        data.add("Circle");
-        data.add("Circle");
-        data.add("Circle");
+        data.add("Triangle");
+        data.add("Love");
+        data.add("Cross");
+        data.add("sling");
         data.add("Circle");
         data.add("Circle");
         data.add("Circle");
@@ -59,6 +69,32 @@ public class Gallery extends AppCompatActivity {
                         LinearLayoutManager.VERTICAL
                 )
         );
+        final WallpaperManager wallpaperManager = WallpaperManager.getInstance(getApplicationContext());
+        recyclerView.addOnItemTouchListener(
+                new RVItemTouchListener(
+                        this,
+                        new RVItemTouchListener.ItemTouchListener() {
+
+                            @Override
+                            public void onItemTouch(View view, int position) { //define custom code when touching an item
+                                String value = "walpaper applied";
+                                Log.d(TAG, value);
+                                Toast.makeText(Gallery.this, value, Toast.LENGTH_SHORT).show();
+                                try {
+                                    // set the wallpaper by calling the setResource function and
+                                    // passing the drawable file
+                                    wallpaperManager.setResource(R.drawable.naruto);
+                                } catch (IOException e) {
+                                    // here the errors can be logged instead of printStackTrace
+                                    e.printStackTrace();
+                                }
+                            }
+                        }
+                )
+        );
+        ItemTouchHelper.Callback touchHelperCallback = new RVItemTouchHelperCallback(rvAdapter);
+        ItemTouchHelper touchHelper = new ItemTouchHelper(touchHelperCallback);
+        touchHelper.attachToRecyclerView(recyclerView);
 
 
         Intent intentHome = new Intent(this,MainActivity.class);
