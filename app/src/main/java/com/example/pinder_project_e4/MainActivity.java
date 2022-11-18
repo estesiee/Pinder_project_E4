@@ -19,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
     ImageButton remove;
     ImageButton toGallery;
     ArrayList<ArrayList<Integer>> allWallpaper = initTabWp();
+    ArrayList<ArrayList<Integer>> likedWallpaper = new ArrayList<ArrayList<Integer>>();
 
     private AppBarConfiguration appBarConfiguration;
 
@@ -45,7 +46,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 //System.out.println("Kick");
-                imageView.setImageResource(newPic());
+                int random = newPic();
+                imageView.setImageResource(allWallpaper.get(random).get(0));
             }
         });
 
@@ -61,7 +63,32 @@ public class MainActivity extends AppCompatActivity {
         ArrayList<ArrayList<Integer>> value = new ArrayList<ArrayList<Integer>>();
         value.add(fill(R.drawable.crop, 0));
         value.add(fill(R.drawable.tokyowallpaper, 0));
-
+        value.add(fill(R.drawable.allee, 0));
+        value.add(fill(R.drawable.automne, 0));
+        value.add(fill(R.drawable.bmw, 0));
+        value.add(fill(R.drawable.bougie, 0));
+        value.add(fill(R.drawable.cascade, 0));
+        value.add(fill(R.drawable.cerf, 0));
+        value.add(fill(R.drawable.cerise, 0));
+        value.add(fill(R.drawable.chatbleu, 0));
+        value.add(fill(R.drawable.chatchad, 0));
+        value.add(fill(R.drawable.chatoux, 0));
+        value.add(fill(R.drawable.coucher, 0));
+        value.add(fill(R.drawable.creed, 0));
+        value.add(fill(R.drawable.lac, 0));
+        value.add(fill(R.drawable.loup, 0));
+        value.add(fill(R.drawable.mug, 0));
+        value.add(fill(R.drawable.mustang, 0));
+        value.add(fill(R.drawable.naruto, 0));
+        value.add(fill(R.drawable.ours, 0));
+        value.add(fill(R.drawable.papillon, 0));
+        value.add(fill(R.drawable.plage, 0));
+        value.add(fill(R.drawable.plage_bleu, 0));
+        value.add(fill(R.drawable.space, 0));
+        value.add(fill(R.drawable.spaceboom, 0));
+        value.add(fill(R.drawable.tokyowallpaper, 0));
+        value.add(fill(R.drawable.terre, 0));
+        value.add(fill(R.drawable.tigre, 0));
         return value;
     }
 
@@ -74,6 +101,6 @@ public class MainActivity extends AppCompatActivity {
 
     private int newPic(){
         Random random = new Random();
-        return allWallpaper.get(random.nextInt(allWallpaper.size())).get(0);
+        return random.nextInt(allWallpaper.size());
     }
 }
