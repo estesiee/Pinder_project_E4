@@ -25,8 +25,19 @@ public class Gallery extends AppCompatActivity {
 
     void initData() {
         data = new ArrayList<>();
-        data.add("Apple");
-        data.add("Banana");
+        data.add("Tokyo");
+        data.add("Circle");
+        data.add("Circle");
+        data.add("Circle");
+        data.add("Circle");
+        data.add("Circle");
+        data.add("Circle");
+        data.add("Circle");
+        data.add("Circle");
+        data.add("Circle");
+        data.add("Circle");
+        data.add("Circle");
+
     }
 
     private AppBarConfiguration appBarConfiguration;
