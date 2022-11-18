@@ -7,9 +7,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import java.util.Random;
 import java.util.ArrayList;
 import android.content.Intent;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.Toast;
+
 import androidx.navigation.ui.AppBarConfiguration;
 
 public class MainActivity extends AppCompatActivity {
@@ -18,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
     ImageButton love;
     ImageButton remove;
     ImageButton toGallery;
+    final String TAG = "MainActivity";
     ArrayList<ArrayList<Integer>> allWallpaper = initTabWp();
     ArrayList<ArrayList<Integer>> likedWallpaper = new ArrayList<ArrayList<Integer>>();
 
@@ -38,9 +42,11 @@ public class MainActivity extends AppCompatActivity {
         love.setOnClickListener(new View.OnClickListener() {
           @Override
           public void onClick(View view) {
-              //System.out.println("Keep");
               int random = newPic();
               imageView.setImageResource(allWallpaper.get(random).get(0));
+              String value = "image saved in liked list";
+              Log.d(TAG, value);
+              Toast.makeText(MainActivity.this, value, Toast.LENGTH_SHORT).show();
           }
         });
 
@@ -50,6 +56,9 @@ public class MainActivity extends AppCompatActivity {
                 //System.out.println("Kick");
                 int random = newPic();
                 imageView.setImageResource(allWallpaper.get(random).get(0));
+                //String value = "disliked";
+                //Log.d(TAG, value);
+                //Toast.makeText(MainActivity.this, value, Toast.LENGTH_SHORT).show();
             }
         });
 

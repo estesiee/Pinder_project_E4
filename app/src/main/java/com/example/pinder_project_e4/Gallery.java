@@ -83,7 +83,7 @@ public class Gallery extends AppCompatActivity {
                                 try {
                                     // set the wallpaper by calling the setResource function and
                                     // passing the drawable file
-                                    wallpaperManager.setResource(R.drawable.naruto);
+                                    wallpaperManager.setResource(R.drawable.terre);
                                 } catch (IOException e) {
                                     // here the errors can be logged instead of printStackTrace
                                     e.printStackTrace();
