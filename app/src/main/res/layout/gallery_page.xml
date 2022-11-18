@@ -6,6 +6,16 @@
     android:background="@color/darkBlue"
     >
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_fruits"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="100dp"
+        android:background="@color/duckBlue"/>
+
     <ImageButton
         android:id="@+id/toHome"
         android:layout_width="80dp"
