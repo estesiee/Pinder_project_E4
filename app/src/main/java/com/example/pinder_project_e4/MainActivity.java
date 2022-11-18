@@ -39,6 +39,8 @@ public class MainActivity extends AppCompatActivity {
           @Override
           public void onClick(View view) {
               //System.out.println("Keep");
+              int random = newPic();
+              imageView.setImageResource(allWallpaper.get(random).get(0));
           }
         });
 

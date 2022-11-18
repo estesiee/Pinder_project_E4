@@ -19,6 +19,7 @@
         android:layout_marginTop="0dp"
         android:layout_marginEnd="0dp"
         android:layout_marginBottom="0dp"
+        android:scaleType="centerCrop"
         app:srcCompat= "@drawable/tokyowallpaper" />
 
     <ImageButton
