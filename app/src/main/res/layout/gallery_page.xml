@@ -38,7 +38,6 @@
         android:layout_marginStart="125dp"
         android:layout_marginTop="15dp"
         android:layout_marginEnd="30dp"
-        android:layout_marginBottom="650dp"
         app:srcCompat="@drawable/pinder_logo" />
 
 </RelativeLayout>

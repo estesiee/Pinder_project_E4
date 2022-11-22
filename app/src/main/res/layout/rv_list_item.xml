@@ -22,7 +22,12 @@
         android:layout_width="250dp"
         android:layout_height="100dp"
         android:layout_marginStart="0dp"
-        android:padding="10dp" />
+        android:padding="10dp"
+        android:gravity="center"
+        android:textSize= "32dp"
+        android:textStyle = "bold"
+        android:textColor="#0F0048"
+        />
 
 
 </LinearLayout>
