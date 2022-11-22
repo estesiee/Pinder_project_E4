@@ -2,6 +2,7 @@ package com.example.pinder_project_e4;
 
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.ImageView;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
@@ -12,19 +13,23 @@ import java.util.List;
 
 public class RVAdapter extends RecyclerView.Adapter<RVAdapter.ItemViewHolder> {
 
-    List<String> dataList;
+    List<String> dataNameList;
+    List<Integer> dataIdList;
 
     public class ItemViewHolder extends RecyclerView.ViewHolder {
         TextView txt;
+        ImageView img;
 
         public ItemViewHolder(View itemView) {
             super(itemView);
             txt = (TextView) itemView.findViewById(R.id.txt);
+            img = (ImageView) itemView.findViewById(R.id.wallpaper);
         }
     }
 
-    public RVAdapter(List<String> dataList) {
-        this.dataList = dataList;
+    public RVAdapter(List<String> dataNameList, List<Integer> dataIdList ) {
+        this.dataNameList = dataNameList;
+        this.dataIdList = dataIdList;
     }
 
     @Override
@@ -38,23 +43,24 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.ItemViewHolder> {
 
     @Override
     public void onBindViewHolder(ItemViewHolder holder, int position) {
-        holder.txt.setText(dataList.get(position));
+        holder.txt.setText(dataNameList.get(position));
+        holder.img.setImageResource(dataIdList.get(position));
     }
 
     @Override
     public int getItemCount() {
-        return dataList.size();
+        return dataNameList.size();
     }
 
 
 
     public void removeItem(int position) {
-        dataList.remove(position);
+        dataNameList.remove(position);
         notifyItemRemoved(position);
     }
 
     public void swapItems(int firstPosition, int secondPosition) {
-        Collections.swap(dataList, firstPosition, secondPosition);
+        Collections.swap(dataNameList, firstPosition, secondPosition);
         notifyItemMoved(firstPosition, secondPosition);
     }
 }

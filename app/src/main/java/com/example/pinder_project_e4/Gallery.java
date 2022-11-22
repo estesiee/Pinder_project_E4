@@ -29,25 +29,23 @@ public class Gallery extends AppCompatActivity {
 
     ImageButton toHome;
     RecyclerView recyclerView;
-    ArrayList<String> data;
+    ArrayList<String> dataName;
+    ArrayList<Integer> dataId;
     RVAdapter rvAdapter;
     final String TAG = "Gallery";
 
-    void initData() {
-        data = new ArrayList<>();
-        data.add("Tokyo");
-        data.add("Circle");
-        data.add("Triangle");
-        data.add("Love");
-        data.add("Cross");
-        data.add("sling");
-        data.add("Circle");
-        data.add("Circle");
-        data.add("Circle");
-        data.add("Circle");
-        data.add("Circle");
-        data.add("Circle");
+    void initdata() {
+        dataName = new ArrayList<String>();
+        dataName.add("Allee");
+        dataName.add("Automne");
+        dataName.add("BMW");
+        dataName.add("Bougie");
 
+        dataId = new ArrayList<Integer>();
+        dataId.add(R.drawable.allee);
+        dataId.add(R.drawable.automne);
+        dataId.add(R.drawable.bmw);
+        dataId.add(R.drawable.bougie);
     }
 
     private AppBarConfiguration appBarConfiguration;
@@ -57,8 +55,8 @@ public class Gallery extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.gallery_page);
 
-        initData();
-        rvAdapter = new RVAdapter(data);
+        initdata();
+        rvAdapter = new RVAdapter(dataName,dataId);
         recyclerView = (RecyclerView) findViewById(R.id.rv_fruits);
         recyclerView.setAdapter(rvAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
@@ -77,13 +75,13 @@ public class Gallery extends AppCompatActivity {
 
                             @Override
                             public void onItemTouch(View view, int position) { //define custom code when touching an item
-                                String value = "walpaper applied";
+                                String value = "wallpaper applied";
                                 Log.d(TAG, value);
                                 Toast.makeText(Gallery.this, value, Toast.LENGTH_SHORT).show();
                                 try {
                                     // set the wallpaper by calling the setResource function and
                                     // passing the drawable file
-                                    wallpaperManager.setResource(R.drawable.terre);
+                                    wallpaperManager.setResource(dataId.get(position));
                                 } catch (IOException e) {
                                     // here the errors can be logged instead of printStackTrace
                                     e.printStackTrace();
