@@ -114,7 +114,7 @@ public class MainActivity extends AppCompatActivity {
         value.add(R.drawable.allee);
         value.add(R.drawable.automne);
         value.add(R.drawable.bmw);
-        /*value.add(R.drawable.bougie);
+        value.add(R.drawable.bougie);
         value.add(R.drawable.cascade);
         value.add(R.drawable.cerf);
         value.add(R.drawable.cerise);
@@ -136,7 +136,7 @@ public class MainActivity extends AppCompatActivity {
         value.add(R.drawable.spaceboom);
         value.add(R.drawable.tokyowallpaper);
         value.add(R.drawable.terre);
-        value.add(R.drawable.tigre);*/
+        value.add(R.drawable.tigre);
         return value;
     }
 
