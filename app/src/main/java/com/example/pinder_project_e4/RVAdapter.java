@@ -56,6 +56,7 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.ItemViewHolder> {
 
     public void removeItem(int position) {
         dataNameList.remove(position);
+        dataIdList.remove(position);
         notifyItemRemoved(position);
     }
 

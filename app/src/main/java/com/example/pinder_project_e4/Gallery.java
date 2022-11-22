@@ -40,12 +40,14 @@ public class Gallery extends AppCompatActivity {
         dataName.add("Automne");
         dataName.add("BMW");
         dataName.add("Bougie");
+        dataName.add("Planète");
 
         dataId = new ArrayList<Integer>();
         dataId.add(R.drawable.allee);
         dataId.add(R.drawable.automne);
         dataId.add(R.drawable.bmw);
         dataId.add(R.drawable.bougie);
+        dataId.add(R.drawable.terre);
     }
 
     private AppBarConfiguration appBarConfiguration;
