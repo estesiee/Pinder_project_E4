@@ -34,24 +34,6 @@ public class Gallery extends AppCompatActivity {
     RVAdapter rvAdapter;
     final String TAG = "Gallery";
 
-    void initdata() {
-       /* dataName = new ArrayList<String>();
-        dataName.add("Allee");
-        dataName.add("Automne");
-        dataName.add("BMW");
-        dataName.add("Bougie");
-        dataName.add("Planète");
-        AppData.getInstance().setList2(dataName);
-
-        dataId = new ArrayList<Integer>();
-        dataId.add(R.drawable.allee);
-        dataId.add(R.drawable.automne);
-        dataId.add(R.drawable.bmw);
-        dataId.add(R.drawable.bougie);
-        dataId.add(R.drawable.terre);
-        AppData.getInstance().setList(dataId);*/
-    }
-
     private AppBarConfiguration appBarConfiguration;
 
     @Override
@@ -59,7 +41,6 @@ public class Gallery extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.gallery_page);
 
-        initdata();
         rvAdapter = new RVAdapter(AppData.getInstance().getList2(),AppData.getInstance().getList());
         recyclerView = (RecyclerView) findViewById(R.id.rv_fruits);
         recyclerView.setAdapter(rvAdapter);

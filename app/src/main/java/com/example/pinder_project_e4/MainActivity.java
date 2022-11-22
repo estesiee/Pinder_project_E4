@@ -22,9 +22,7 @@ public class MainActivity extends AppCompatActivity {
     ImageButton remove;
     ImageButton toGallery;
     int idImage;
-    final String TAG = "MainActivity";
-    ArrayList<ArrayList<Integer>> allWallpaper = initTabWp();
-    ArrayList<ArrayList<Integer>> likedWallpaper = new ArrayList<ArrayList<Integer>>();
+    ArrayList<Integer> allWallpaper = initTabWp();
 
     private AppBarConfiguration appBarConfiguration;
 
@@ -36,6 +34,10 @@ public class MainActivity extends AppCompatActivity {
         Intent intentGallery = new Intent(this,Gallery.class);
 
         imageView = (ImageView) findViewById(R.id.wallpaper);
+
+        int random = newPic();
+        imageView.setImageResource(random);
+
         love = (ImageButton) findViewById(R.id.love);
         remove = (ImageButton) findViewById(R.id.remove);
         toGallery = (ImageButton) findViewById(R.id.toGallery);
@@ -43,31 +45,57 @@ public class MainActivity extends AppCompatActivity {
         love.setOnClickListener(new View.OnClickListener() {
           @Override
           public void onClick(View view) {
-              ArrayList l = new ArrayList();
-              ArrayList l2 = new ArrayList();
-              l=AppData.getInstance().getList();
-              l.add(allWallpaper.get(idImage).get(0));
-              AppData.getInstance().setList(l);
-              l2=AppData.getInstance().getList2();
-              l2.add("Appuyer pour l'appliquer");
-              AppData.getInstance().setList2(l2);
-              int random = newPic();
-              imageView.setImageResource(allWallpaper.get(random).get(0));
-              String value = "image saved in liked list";
-              Log.d(TAG, value);
-              Toast.makeText(MainActivity.this, value, Toast.LENGTH_SHORT).show();
+              if(allWallpaper.isEmpty()){
+                  Toast.makeText(MainActivity.this, "No Image Available", Toast.LENGTH_SHORT).show();
+                  return;
+              }
+              else {
+                  boolean test = allWallpaper.remove((Object)idImage);
+                  ArrayList l = new ArrayList();
+                  ArrayList l2 = new ArrayList();
+                  l = AppData.getInstance().getList();
+                  l2 = AppData.getInstance().getList2();
+
+                  if(l.contains(idImage)){
+                      Toast.makeText(MainActivity.this, "Already Liked", Toast.LENGTH_SHORT).show();
+                  }
+                  else {
+                      l.add(idImage);
+                      AppData.getInstance().setList(l);
+                      l2.add("Appuyer pour l'appliquer");
+                      AppData.getInstance().setList2(l2);
+                      Toast.makeText(MainActivity.this, "Image Liked", Toast.LENGTH_SHORT).show();
+                  }
+                  if(!allWallpaper.isEmpty()) {
+                      int random = newPic();
+                      imageView.setImageResource(random);
+                  }
+                  else{
+                      imageView.setImageResource(R.drawable.see_you);
+                      return;
+                  }
+              }
           }
         });
 
         remove.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //System.out.println("Kick");
-                int random = newPic();
-                imageView.setImageResource(allWallpaper.get(random).get(0));
-                //String value = "disliked";
-                //Log.d(TAG, value);
-                //Toast.makeText(MainActivity.this, value, Toast.LENGTH_SHORT).show();
+                if(allWallpaper.isEmpty()){
+                    Toast.makeText(MainActivity.this, "No Image Available", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                else {
+                    boolean test = allWallpaper.remove((Object)idImage);
+                    if(!allWallpaper.isEmpty()) {
+                        int random = newPic();
+                        imageView.setImageResource(random);
+                    }
+                    else{
+                        imageView.setImageResource(R.drawable.see_you);
+                        return;
+                    }
+                }
             }
         });
 
@@ -79,53 +107,42 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    private ArrayList<ArrayList<Integer>> initTabWp(){
-        ArrayList<ArrayList<Integer>> value = new ArrayList<ArrayList<Integer>>();
-       // ArrayList<Integer> value2 = AppData.getInstance().getList();
-        //for(int i=0; i< value2.size(); i++){
-            //value.add(fill(value2.get(i),0));
-       // }
-        value.add(fill(R.drawable.tokyowallpaper, 0));
-        value.add(fill(R.drawable.crop, 0));
-        value.add(fill(R.drawable.allee, 0));
-        value.add(fill(R.drawable.automne, 0));
-        value.add(fill(R.drawable.bmw, 0));
-        value.add(fill(R.drawable.bougie, 0));
-        value.add(fill(R.drawable.cascade, 0));
-        value.add(fill(R.drawable.cerf, 0));
-        value.add(fill(R.drawable.cerise, 0));
-        value.add(fill(R.drawable.chatbleu, 0));
-        value.add(fill(R.drawable.chatchad, 0));
-        value.add(fill(R.drawable.chatoux, 0));
-        value.add(fill(R.drawable.coucher, 0));
-        value.add(fill(R.drawable.creed, 0));
-        value.add(fill(R.drawable.lac, 0));
-        value.add(fill(R.drawable.loup, 0));
-        value.add(fill(R.drawable.mug, 0));
-        value.add(fill(R.drawable.mustang, 0));
-        value.add(fill(R.drawable.naruto, 0));
-        value.add(fill(R.drawable.ours, 0));
-        value.add(fill(R.drawable.papillon, 0));
-        value.add(fill(R.drawable.plage, 0));
-        value.add(fill(R.drawable.plage_bleu, 0));
-        value.add(fill(R.drawable.space, 0));
-        value.add(fill(R.drawable.spaceboom, 0));
-        value.add(fill(R.drawable.tokyowallpaper, 0));
-        value.add(fill(R.drawable.terre, 0));
-        value.add(fill(R.drawable.tigre, 0));
+    private ArrayList<Integer> initTabWp(){
+        ArrayList<Integer> value = new ArrayList<Integer>();
+        value.add(R.drawable.tokyowallpaper);
+        value.add(R.drawable.crop);
+        value.add(R.drawable.allee);
+        value.add(R.drawable.automne);
+        value.add(R.drawable.bmw);
+        /*value.add(R.drawable.bougie);
+        value.add(R.drawable.cascade);
+        value.add(R.drawable.cerf);
+        value.add(R.drawable.cerise);
+        value.add(R.drawable.chatbleu);
+        value.add(R.drawable.chatchad);
+        value.add(R.drawable.chatoux);
+        value.add(R.drawable.coucher);
+        value.add(R.drawable.creed);
+        value.add(R.drawable.lac);
+        value.add(R.drawable.loup);
+        value.add(R.drawable.mug);
+        value.add(R.drawable.mustang);
+        value.add(R.drawable.naruto);
+        value.add(R.drawable.ours);
+        value.add(R.drawable.papillon);
+        value.add(R.drawable.plage);
+        value.add(R.drawable.plage_bleu);
+        value.add(R.drawable.space);
+        value.add(R.drawable.spaceboom);
+        value.add(R.drawable.tokyowallpaper);
+        value.add(R.drawable.terre);
+        value.add(R.drawable.tigre);*/
         return value;
-    }
-
-    private ArrayList<Integer> fill(int value,int state){
-        ArrayList<Integer> list = new ArrayList<Integer>();
-        list.add(value);
-        list.add(state);
-        return list;
     }
 
     private int newPic(){
         Random random = new Random();
-        idImage = random.nextInt(allWallpaper.size());
+        idImage = allWallpaper.get(random.nextInt(allWallpaper.size()));
         return idImage;
     }
 }
