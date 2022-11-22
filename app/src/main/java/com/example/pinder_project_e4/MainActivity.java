@@ -21,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
     ImageButton love;
     ImageButton remove;
     ImageButton toGallery;
+    int idImage;
     final String TAG = "MainActivity";
     ArrayList<ArrayList<Integer>> allWallpaper = initTabWp();
     ArrayList<ArrayList<Integer>> likedWallpaper = new ArrayList<ArrayList<Integer>>();
@@ -42,6 +43,14 @@ public class MainActivity extends AppCompatActivity {
         love.setOnClickListener(new View.OnClickListener() {
           @Override
           public void onClick(View view) {
+              ArrayList l = new ArrayList();
+              ArrayList l2 = new ArrayList();
+              l=AppData.getInstance().getList();
+              l.add(allWallpaper.get(idImage).get(0));
+              AppData.getInstance().setList(l);
+              l2=AppData.getInstance().getList2();
+              l2.add("Appuyer pour l'appliquer");
+              AppData.getInstance().setList2(l2);
               int random = newPic();
               imageView.setImageResource(allWallpaper.get(random).get(0));
               String value = "image saved in liked list";
@@ -72,8 +81,12 @@ public class MainActivity extends AppCompatActivity {
 
     private ArrayList<ArrayList<Integer>> initTabWp(){
         ArrayList<ArrayList<Integer>> value = new ArrayList<ArrayList<Integer>>();
-        value.add(fill(R.drawable.crop, 0));
+       // ArrayList<Integer> value2 = AppData.getInstance().getList();
+        //for(int i=0; i< value2.size(); i++){
+            //value.add(fill(value2.get(i),0));
+       // }
         value.add(fill(R.drawable.tokyowallpaper, 0));
+        value.add(fill(R.drawable.crop, 0));
         value.add(fill(R.drawable.allee, 0));
         value.add(fill(R.drawable.automne, 0));
         value.add(fill(R.drawable.bmw, 0));
@@ -112,6 +125,7 @@ public class MainActivity extends AppCompatActivity {
 
     private int newPic(){
         Random random = new Random();
-        return random.nextInt(allWallpaper.size());
+        idImage = random.nextInt(allWallpaper.size());
+        return idImage;
     }
 }

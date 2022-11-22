@@ -35,12 +35,13 @@ public class Gallery extends AppCompatActivity {
     final String TAG = "Gallery";
 
     void initdata() {
-        dataName = new ArrayList<String>();
+       /* dataName = new ArrayList<String>();
         dataName.add("Allee");
         dataName.add("Automne");
         dataName.add("BMW");
         dataName.add("Bougie");
         dataName.add("Planète");
+        AppData.getInstance().setList2(dataName);
 
         dataId = new ArrayList<Integer>();
         dataId.add(R.drawable.allee);
@@ -48,6 +49,7 @@ public class Gallery extends AppCompatActivity {
         dataId.add(R.drawable.bmw);
         dataId.add(R.drawable.bougie);
         dataId.add(R.drawable.terre);
+        AppData.getInstance().setList(dataId);*/
     }
 
     private AppBarConfiguration appBarConfiguration;
@@ -58,7 +60,7 @@ public class Gallery extends AppCompatActivity {
         setContentView(R.layout.gallery_page);
 
         initdata();
-        rvAdapter = new RVAdapter(dataName,dataId);
+        rvAdapter = new RVAdapter(AppData.getInstance().getList2(),AppData.getInstance().getList());
         recyclerView = (RecyclerView) findViewById(R.id.rv_fruits);
         recyclerView.setAdapter(rvAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
@@ -83,7 +85,7 @@ public class Gallery extends AppCompatActivity {
                                 try {
                                     // set the wallpaper by calling the setResource function and
                                     // passing the drawable file
-                                    wallpaperManager.setResource(dataId.get(position));
+                                    wallpaperManager.setResource((int)AppData.getInstance().getList().get(position));
                                 } catch (IOException e) {
                                     // here the errors can be logged instead of printStackTrace
                                     e.printStackTrace();
