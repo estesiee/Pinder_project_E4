@@ -11,11 +11,14 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.Collections;
 import java.util.List;
 
+//s'occupe de la mise en forme de la recycle view
+//agit item par item, donc ligne par ligne
 public class RVAdapter extends RecyclerView.Adapter<RVAdapter.ItemViewHolder> {
 
     List<String> dataNameList;
     List<Integer> dataIdList;
 
+    //permet de donner les données et la place d'un item danas la recycle view
     public class ItemViewHolder extends RecyclerView.ViewHolder {
         TextView txt;
         ImageView img;
@@ -26,7 +29,6 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.ItemViewHolder> {
             img = (ImageView) itemView.findViewById(R.id.wallpaper);
         }
     }
-
     public RVAdapter(List<String> dataNameList, List<Integer> dataIdList ) {
         this.dataNameList = dataNameList;
         this.dataIdList = dataIdList;
@@ -35,6 +37,7 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.ItemViewHolder> {
     @Override
     public ItemViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
 
+        //layout inflater permet d'instancier un layout dans une vue correspondante
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.rv_list_item, parent,
                 false);
 
@@ -54,12 +57,15 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.ItemViewHolder> {
 
 
 
+    //permet de retirer une image like de la liste de favoris
     public void removeItem(int position) {
         dataNameList.remove(position);
         dataIdList.remove(position);
         notifyItemRemoved(position);
     }
 
+    //permet de modifier la position d'un item dans la recycle view
+    //plus exactement d'échanger la position entre l'élément suivant et le précedent
     public void swapItems(int firstPosition, int secondPosition) {
         Collections.swap(dataNameList, firstPosition, secondPosition);
         notifyItemMoved(firstPosition, secondPosition);
