@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
+    <!--rv list item gère le format d'un item et au sein de la recycle view-->
     <ImageView
         android:id="@+id/wallpaper"
         android:layout_width="100dp"

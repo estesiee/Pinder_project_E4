@@ -21,6 +21,8 @@
         android:layout_marginBottom="0dp"
         android:scaleType="centerCrop"
         app:srcCompat= "@drawable/tokyowallpaper" />
+    <!--centercrop permet de ne pas déformer une image en zoomant dedans
+    afin de prendre toute la place disponible, ici l'écran du téléphone-->
 
     <ImageButton
         android:id="@+id/remove"
@@ -34,6 +36,7 @@
         app:srcCompat="@drawable/remove"
         android:scaleType="fitXY"
         />
+    <!--fitXY force l'image à prendre toute la place demandé mais peut la déformer dans l'opération-->
 
     <ImageButton
         android:id="@+id/love"

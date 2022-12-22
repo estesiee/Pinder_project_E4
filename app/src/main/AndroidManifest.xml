@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <!--access permission to set the wallpaper-->
+    <!--permission donnant l'accès à la modification du wallpaper système-->
     <uses-permission android:name="android.permission.SET_WALLPAPER" />
 
     <application
@@ -20,7 +20,9 @@
             android:exported="true"
             android:label="@string/app_name"
             android:theme="@style/Theme.Pinder_project_E4.NoActionBar"
+
             android:screenOrientation="portrait">
+            <!--screen orientation permet de bloquer l'utilisation de l'application en mode portrait-->
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
